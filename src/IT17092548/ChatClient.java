@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JTextPane;
 
 /**
  * A simple Swing-based client for the chat server.  Graphically
@@ -43,10 +44,8 @@ public class ChatClient {
     JTextField textField1 = new JTextField(40);
     JTextField textField2 = new JTextField(40);
     JTextArea messageArea = new JTextArea(20, 50);
-    // TODO: Add a list box 
-    //DONE
     JList list = new JList();
-    Checkbox ch1 = new Checkbox();
+    Checkbox ch1 = new Checkbox("Allow Broadcasting");
     
     /**
      * Constructs the client by laying out the GUI and registering a
@@ -61,10 +60,11 @@ public class ChatClient {
         // Layout GUI
         textField1.setEditable(false);
         textField2.setEditable(false);
+        ch1.setBounds(40,120,120,120);  //apply the size of the checkbox
         messageArea.setEditable(false);
         ch1.setFocusable(false);
         frame.getContentPane().add(textField1, "North");
-        frame.getContentPane().add(textField2, "South");
+        frame.getContentPane().add(ch1, "Center");
         frame.getContentPane().add(new JScrollPane(messageArea), "Center");
         frame.pack();
 
